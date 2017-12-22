@@ -20,6 +20,10 @@
 
 using `r"$latex text$"`
 
+### latex in matplotlib label
+
+using '$latex text$'
+
 ### lambda
 
 [python docs](https://docs.python.org/3/tutorial/controlflow.html)
