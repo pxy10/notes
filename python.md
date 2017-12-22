@@ -160,6 +160,26 @@ plt.legend(['A simple line'],loc='upper center', shadow=True, fontsize='x-large'
 
 The arguments of `legend` should be a list of string rather than string, otherwise, the legend is only the first character of the string. For example: `plt.legend('A simple line')`, the plotted legend is just `A`.
 
+# multiple legends
+
+```python
+import matplotlib.pyplot as plt
+
+line1, = plt.plot([1,2,3], label="Line 1", linestyle='--')
+line2, = plt.plot([3,2,1], label="Line 2", linewidth=4)
+
+# Create a legend for the first line.
+first_legend = plt.legend(handles=[line1], loc=1)
+
+# Add the legend manually to the current Axes.
+ax = plt.gca().add_artist(first_legend)
+
+# Create another legend for the second line.
+plt.legend(handles=[line2], loc=4)
+
+plt.show()
+```
+
 #### subplots
 
 `fig, ax = plt.subplots()` returns a [`matplotlib.figure.Figure` instance](https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure) and a [matplotlib.axes.Axes instance](https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes). The get and set methods of the two instances are in the form of `fig.set_***` and `ax.get_***`.
