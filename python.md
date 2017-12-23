@@ -43,6 +43,10 @@ Small anonymous functions can be created with the lambda keyword. This function 
 43
 ```
 
+### periodictable
+
+[periodictable package](http://periodictable.readthedocs.io/en/latest/)
+
 ### time
 
 ```python
