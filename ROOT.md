@@ -2,11 +2,11 @@
 
 ### Numerical Minimization
 
-classed involved for 1-dimension minimization:
+classes involved for 1-dimension minimization:
 
 
 
-classed involved for multi-dimension minimization:
+classes involved for multi-dimension minimization:
 
 + [ROOT::Math::functor](https://root.cern.ch/root/html/ROOT__Math__Functor.html)
 
