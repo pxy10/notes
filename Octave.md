@@ -17,6 +17,8 @@
 
 `M(:)` puts all elements of `M` into a single vector
 
+`addpath('pathyouwanttoaddintosearchpath')` adds into search path.
+
 ### load/save file
 
 `load filename.dat` or `load('filename.dat')`
