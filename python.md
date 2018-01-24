@@ -168,7 +168,7 @@ plt.legend(['A simple line'],loc='upper center', shadow=True, fontsize='x-large'
 
 The arguments of `legend` should be a list of string rather than string, otherwise, the legend is only the first character of the string. For example: `plt.legend('A simple line')`, the plotted legend is just `A`.
 
-# multiple legends
+##### multiple legends
 
 ```python
 import matplotlib.pyplot as plt
@@ -186,6 +186,45 @@ ax = plt.gca().add_artist(first_legend)
 plt.legend(handles=[line2], loc=4)
 
 plt.show()
+```
+##### Subheadings for categories within matplotlib custom legend
+
+[example](https://stackoverflow.com/questions/21570007/subheadings-for-categories-within-matplotlib-custom-legend)
+
+```python
+from matplotlib.pyplot import *
+ds = [1,2,3]
+dc = [1.1, 1.9, 3.2]
+asim = [1.5, 2.2, 3.1]
+ac = [1.6, 2.15, 3.1]
+
+categories = ['simulated', 'calculated']
+
+p1, = plot(ds, 'ko', label='D simulated')
+p2, = plot(dc, 'k:', label='D calculated')
+p3, = plot(asim, 'b+', label='A simulated')
+p4, = plot(ac, 'b-', label='A calculated')
+p5, = plot([0], marker='None',
+           linestyle='None', label='dummy-tophead')
+p7, = plot([0],  marker='None',
+           linestyle='None', label='dummy-empty')
+
+leg3 = legend([p5, p1, p2, p5, p3, p4],
+              [r'$D_{etc}$'] + categories + [r'$A_{etc}$'] + categories,
+              loc=2, ncol=2) # Two columns, vertical group labels
+
+leg4 = legend([p5, p7, p5, p7, p1, p2, p3, p4],
+              [r'$D_{etc}$', '', r'$A_{etc}$', ''] + categories + categories,
+              loc=4, ncol=2) # Two columns, horizontal group labels
+
+gca().add_artist(leg3)
+
+#If there isn't a big empty spot on the plot, two legends:
+#leg1 = legend([p1, p2], categories, title='D_etc', loc=0)
+#leg2 = legend([p3, p4], categories, title='A_etc', loc=4)
+#gca().add_artist(leg2) 
+
+show()
 ```
 
 #### subplots
