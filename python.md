@@ -65,9 +65,10 @@ from mpl_toolkits.mplot3d import Axes3D
 
 [text properties](https://matplotlib.org/api/text_api.html#matplotlib.text.Text)
 
-#### set xlim, ylim
+#### set xlim, ylim, log scale
 
 ```python
+ax.set_yscale('log')
 plt.gca().set_xlim((10, 20))
 plt.gca().set_ylim((0.01,300))
 ```
