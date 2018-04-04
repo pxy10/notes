@@ -56,6 +56,14 @@ ts = time.time()
 print('time cost: {:.0f} secs'.format(time.time()-ts))
 ```
 
+convert time format
+
+`time.gmtime([secs])`: Convert a time expressed in seconds since the epoch to a `struct_time` in UTC in which the dst flag is always zero.
+
+`time.strftime(format[, t])`: Convert a tuple or struct_time representing a time to a string as specified by the format argument.
+
+`time.strptime(string[, format])`: Parse a string representing a time according to a format. The return value is a struct_time.
+
 ### matplotlib toolkit
 
 ```python
