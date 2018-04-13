@@ -39,3 +39,29 @@ void ListDirectory(const char* dirname = "/media/pxy10/Documents/G4Simulation/tu
     }
 } 
 ```
+
+### Directory
+
+在ROOT中, 如果涉及到同时打开了多个文件, 注意Directory的变化. 通过`gDirectory->pwd()`可以print当前的directory.
+
+```cpp
+TFile* fout = new TFile(OutputFile, "RECREATE"); // current directory is OutputFile
+TFile* fin = new TFile(InputFile, "READ"); // current directory is InputFile
+fout->cd(); // change to directory of OutputFile
+```
+
+对于TH1的成员, 通过`SetDirectory(0)`可以设置为不依赖于directory, 从而在directory关闭之后仍可以`Draw()`.
+
+### Save Canvas
+
+```cpp
+{
+    auto c1 = new TCanvas("c1","test",10,10,600,700);
+    c1->Divide(1,2);
+    c1->cd(1);
+    histo0->Draw("HIST");
+    c1->cd(2);
+    histo1->Draw("HIST");
+    c1->Print("test.png");
+    gPad->Print("test.png"); // Draw()`
+}
