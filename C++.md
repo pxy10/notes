@@ -14,6 +14,41 @@ const: 用于既需要共享, 又要防止改变的数据. 包括:
 5. 常指针: 指向常量的指针. 
 
 
+## 形参为指针的函数
+
+```cpp
+void filterAvg(Float_t* OutBuf,Float_t* InBuf,Int_t Length,Int_t halfwindow = 10)
+{
+    Float_t * ExtWf = new Float_t[Length+halfwindow*2];
+    Int_t offset = 5;
+    // rechect the first and last 5 points and then reflect the points after 5th point as the header of ExtWf
+    // reflect the points before the last 5th point as the end of ExtWf
+    Float_t *SumWf = new Float_t[Length];
+    memset(SumWf,0.,sizeof(Float_t)*Length);
+    // Float_t SumWf[Length] = {0.};
+    for(Int_t i=0;i<Length+halfwindow*2;i++){
+        if (i < halfwindow + offset)
+            ExtWf[i] = Float_t(InBuf[halfwindow+2*offset-i]);
+        else if (i >= Length + halfwindow - offset)
+            ExtWf[i] = Float_t(InBuf[2*Length+halfwindow-2*offset-2-i]);
+        else
+            ExtWf[i] = Float_t(InBuf[i-halfwindow]);
+    }
+    for (Int_t i = 0;i < 2*halfwindow+1;i++)
+        SumWf[0] += ExtWf[i];
+    for (Int_t i = 1;i < Length;i++)
+        SumWf[i] = SumWf[i-1] + ExtWf[i+2*halfwindow] - ExtWf[i-1];
+    for (Int_t i = 0;i < Length;i++)
+        OutBuf[i] = SumWf[i] / (2*halfwindow + 1);
+    delete[] ExtWf;
+    delete[] SumWf;
+}
+
+Float_t *RawPulse = new Float_t[WAVELENGTH];
+Float_t *AvgPulse = new Float_t[WAVELENGTH];
+
+filterAvg(AvgPulse,RawPulse,WAVELENGTH,10);
+```
 
 
 
