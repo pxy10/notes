@@ -524,9 +524,8 @@ cd $SWDIR/geant4
 wget http://geant4.web.cern.ch/geant4/support/source/geant4.10.03.p01.tar.gz
 tar zxvf geant4.10.03.p01.tar.gz
 mv geant4.10.03.p01.tar.gz /tmp
-cd geant4.10.03.p01
-mkdir build
-echo cmake -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=RelWithDebInfo -DGEANT4_INSTALL_DATA=ON -DCLHEP_ROOT_DIR=/home/pxy/Software/CLHEP/2.3.4.4/install -DCMAKE_COMPILER_IS_GNUCXX=ON -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_USE_RAYTRACER_X11=ON -DGEANT4_USE_GDML=ON -DGEANT4_USE_QT=ON -DGEANT4_BUILD_MULTITHREADED=ON ../src > cmakeCommand.txt
+mkdir build install
+echo cmake -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=RelWithDebInfo -DGEANT4_INSTALL_DATA=ON -DCLHEP_ROOT_DIR=/home/pxy/Software/CLHEP/2.3.4.4/install -DCMAKE_COMPILER_IS_GNUCXX=ON -DGEANT4_USE_OPENGL_X11=ON -DGEANT4_USE_RAYTRACER_X11=ON -DGEANT4_USE_GDML=ON -DGEANT4_USE_QT=ON -DGEANT4_BUILD_MULTITHREADED=ON ../geant4.10.03.p01 > cmakeCommand.txt
 cd build
 `cat ../cmakeCommand.txt` >& cmake.log
 less cmake.log
