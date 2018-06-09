@@ -321,6 +321,8 @@ s2 = np.sin(2 * np.pi * t)
 ax2.plot(t, s2, 'r.')
 ax2.set_ylabel('sin', color='r')
 ax2.tick_params('y', colors='r')
+ax2.spines['left'].set_color('b')
+ax2.spines['right'].set_color('r')
 
 fig.tight_layout()
 plt.show()
