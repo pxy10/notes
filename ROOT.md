@@ -65,3 +65,14 @@ fout->cd(); // change to directory of OutputFile
     c1->Print("test.png");
     gPad->Print("test.png"); // Draw()`
 }
+
+### Margin
+
+调整画图时pad周围的余量, 默认好像都是0.1(占总长度的比例)
+
+```cpp
+{
+  gPad->SetMargin(0.1, 0.1, 0.1, 0.1);
+  gPad->SetLeftMargin(0.1);
+  gPad->SetTopMargin(0.1);
+}
