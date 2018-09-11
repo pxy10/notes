@@ -24,6 +24,8 @@ using `r"$latex text$"`
 
 using '$latex text$'
 
+[Writing mathematical expressions](https://matplotlib.org/users/mathtext.html)
+
 ### lambda
 
 [python docs](https://docs.python.org/3/tutorial/controlflow.html)
