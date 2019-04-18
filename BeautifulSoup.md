@@ -32,3 +32,12 @@ for child in title_tag.children:
 这种方法只包含了第一层子节点, 对于后面几层子孙节点, 可以通过`.descendants`获取, 使用方法与`.children`类似.
 
 `.parent`可以获取父节点. 
+
+#### 按照class寻找
+
+利用`soup.find('.class')`或者`soup.find('tag', class_='class')`, select和find_all也可以使用
+
+```python
+soup.find('div', class_='summary-price-wrap')
+soup.find('.summary-price-wrap')
+```
