@@ -75,6 +75,24 @@ from mpl_toolkits.mplot3d import Axes3D
 
 [text properties](https://matplotlib.org/api/text_api.html#matplotlib.text.Text)
 
+#### Chinese Font
+
+Download Chinese Fonts .ttf. [附录中介绍了常用中文字体的英文](https://www.jb51.net/article/134546.htm)
+
+```python
+# 加入中文字体, 设置字体大小
+from matplotlib.font_manager import FontProperties
+myfont = FontProperties(fname='/usr/share/fonts/MyFonts/simhei.ttf')
+mpl.rcParams['axes.unicode_minus']=False #解决负号'-'显示为方块的问题
+myfont.set_size(15)
+
+PreFontsize = plt.rcParams['font.size']
+print('old font size is: ', plt.rcParams['font.size'])
+plt.rcParams.update({'font.size': 15})
+print('new font size is: ', plt.rcParams['font.size'])
+```
+
+
 #### set xlim, ylim, log scale
 
 ```python
