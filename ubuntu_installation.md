@@ -419,19 +419,19 @@ sudo apt-get install gfortran libssl-dev libpcre3-dev xlibmesa-glu-dev libglew1.
 
 
 
-2. Install ROOT(version 6.8.6)
+2. Install ROOT(version 6.18.00)
 
 ```shell
 mkdir root(ROOTDIR)
 cd root
-wget https://root.cern.ch/download/root_v6.08.06.source.tar.gz
+wget https://root.cern.ch/download/root_v6.18.00.source.tar.gz
 # wget https://root.cern.ch/download/root_<version>.source.tar.gz
-tar zxvf root_v6.08.06.source.tar.gz
-mv root_v6.08.06.source.tar.gz /tmp
-mv root-6.08.06 src
-mkdir root-6.08.06
-mv src root-6.08.06
-cd root-6.08.06
+tar zxvf root_v6.18.00.source.tar.gz
+mv root_v6.18.00.source.tar.gz /tmp
+mv root-6.18.00 src
+mkdir root-6.18.00
+mv src root-6.18.00
+cd root-6.18.00
 mkdir build install
 echo cmake -DCMAKE_INSTALL_PREFIX=../install -Dgdml=ON -Dminuit2=ON -Droofit=ON -Dhttp=ON -Dldap=OFF ../src > cmakeCommand.txt
 cd build
