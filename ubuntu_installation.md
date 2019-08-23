@@ -442,7 +442,7 @@ make -j$N
 make install
 ```
 
-If ROOT is used for python3, add `-Dpython3=ON` during cmake.
+If ROOT is used for python3, add `-Dpython3=ON` during cmake. This has been changed to `-DPYTHON_EXECUTABLE=/usr/bin/python3`.
 
 ```
 cmake -DCMAKE_INSTALL_PREFIX=../install -Dpython3=ON -Dgdml=ON -Dminuit2=ON -Droofit=ON -Dhttp=ON -Dldap=OFF ../src
