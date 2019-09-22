@@ -224,6 +224,23 @@ an example of config.json
 }
 ```
 
+`run.sh` file:
+
+```
+#!/bin/bash
+dir=~/configs
+for filename in $dir/*.json
+do
+    nohup ss-server -c $filename > $filename".out" 2>&1 &
+done
+```
+
+copy files to remote server:
+
+```
+scp /media/pxy/Documents/configs/* root@45.76.118.153:~/configs/
+```
+
 #### user configuration
 
 ```shell
