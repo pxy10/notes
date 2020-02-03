@@ -197,6 +197,13 @@ sudo apt-get update
 sudo apt install shadowsocks-libev
 ```
 
+For Ubuntu 16.10 or higher:
+
+```shell
+sudo apt update
+sudo apt install shadowsocks-libev
+```
+
 #### arrange an oversea server
 
 vultr
