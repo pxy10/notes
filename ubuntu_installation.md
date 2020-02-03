@@ -65,12 +65,10 @@ choose boot partition
 
 ### Time zone
 
-[solution](https://blog.otorb.com/2017/01/15/solve-the-linux-and-windows-time-synchronization-problem/)
+[solution](https://www.howtogeek.com/323390/how-to-fix-windows-and-linux-showing-different-times-when-dual-booting/)
 
 ```shell
-sudo apt-get install ntpdate
-sudo ntpdate time.windows.com
-sudo hwclock --localtime --systohc
+timedatectl set-local-rtc 1 --adjust-system-clock
 ```
 
 ### boot optional
