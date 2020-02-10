@@ -1,3 +1,54 @@
+## samba
+
+[reference](https://ubuntu.com/tutorials/install-and-configure-samba#1-overview)
+
+First, install samba via apt
+
+```
+sudo apt update
+sudo apt install samba
+```
+
+Second, Setting up Samba
+
+create a directory for samba to share
+
+```
+mkdir /home/<username>/sambashare/
+```
+
+The configuration file for Samba is located at /etc/samba/smb.conf. To add the new directory as a share, we edit the file by running:
+
+```
+sudo nano /etc/samba/smb.conf
+```
+
+At the bottom of the file, add the following lines:
+
+```
+[sambashare]
+    comment = Samba on Ubuntu
+    path = /home/username/sambashare
+    read only = no
+    browsable = yes
+```
+Then press Ctrl-O to save and Ctrl-X to exit from the nano text editor.
+
+Now that we have our new share configured, save it and restart Samba for it to take effect:
+
+```
+sudo service smbd restart
+```
+
+Update the firewall rules to allow Samba traffic:
+
+```
+sudo ufw allow samba
+```
+
+打开文件管理器, 其他位置-连接到服务器-输入(smb://raspberrypi/share)-连接-输入用户名密码. 之后在网络位置就会出现对应的网络驱动器.
+
+
 ## ipv6
 
 [setting](https://github.com/tuna/ipv6.tsinghua.edu.cn/blob/master/isatap.md)
