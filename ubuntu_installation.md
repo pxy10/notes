@@ -192,6 +192,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
 
+最近出现了连接错误的问题, 可以通过修改`\etc\hosts`文件实现. [参考内容](https://blog.csdn.net/weixin_40200876/article/details/109133635)
+
+- 首先通过`ping raw.githubusercontent.com`查看可以连接到`raw.githubusercontent.com`的ip地址
+- `sudo nano \etc\hosts`, 在其中添加: `<ip address> raw.githubusercontent.com`
+
+完成上述修改后, 即可解决连接错误的问题.
+
 change theme to candy:
 
 ```shell
